@@ -25,6 +25,9 @@ A lightweight drag-and-drop ToDo application built with vanilla ES6. This projec
 - **Testing:**  
   Jest tests (with Babel) mock the fetch API for a reliable testing experience.
 
+- **Dockerized Deployment with NGINX:**  
+  The app is containerized using Docker and NGINX for easy deployment.
+
 ## Project Structure
 
 ```
@@ -38,6 +41,9 @@ sticky-notes-todo-app/
 │   └── services.test.js   # Jest tests for API functions
 ├── index.html             # Main HTML file
 ├── styles.css             # CSS for the sticky notes and app layout
+├── Dockerfile             # Docker configuration for NGINX container
+├── docker-compose.yml     # Docker Compose configuration for running the app
+├── nginx/default.conf     # Custom NGINX configuration (optional)
 ├── babel.config.js        # Babel configuration for Jest
 ├── package.json           # Project manifest (scripts, dependencies)
 └── README.md              # This file
@@ -48,7 +54,8 @@ sticky-notes-todo-app/
 ### Prerequisites
 
 - [Node.js](https://nodejs.org/) (v14 or later recommended)
-- npm (comes with Node.js)
+- [Docker](https://www.docker.com/get-started) (latest version recommended)
+- [Docker Compose](https://docs.docker.com/compose/install/)
 
 ### Installation
 
@@ -67,6 +74,8 @@ sticky-notes-todo-app/
 
 ### Running the Application
 
+#### Option 1: Run with Local Development Server
+
 You can use the included `serve` package to run a local static server:
 
 ```bash
@@ -74,6 +83,24 @@ npm start
 ```
 
 Then open [http://localhost:5000](http://localhost:5000) (or the port indicated by the server) in your browser to use the app.
+
+#### Option 2: Run with Docker and NGINX
+
+To build and run the application using Docker, follow these steps:
+
+1. Build and run the Docker container using Docker Compose:
+
+   ```bash
+   docker-compose up --build
+   ```
+
+2. Open the app in your browser at:
+
+   ```
+   http://localhost:8080
+   ```
+
+This will serve the app using an NGINX container.
 
 ### Running Tests
 
@@ -101,3 +128,6 @@ This will run all tests in the `tests/` folder. The tests mock fetch calls to si
 
 - **Testing:**  
   API functions are fully tested using Jest with Babel, ensuring code quality and maintainability.
+
+- **Dockerization:**  
+  The application is packaged with Docker and uses NGINX to serve static files. This makes deployment more reliable and scalable.
