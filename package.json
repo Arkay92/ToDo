@@ -7,7 +7,7 @@
         "start": "serve .",
         "test": "jest"
     },
-    "author": "Your Name",
+    "author": "Robert McMemenemy",
     "license": "MIT",
     "devDependencies": {
         "@babel/core": "^7.26.9",
